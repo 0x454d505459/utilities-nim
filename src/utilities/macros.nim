@@ -31,9 +31,9 @@ macro includeDir*(dir:static[string]): untyped =
     infixStmt.add(newIdentNode("/"), newIdentNode(dir))
     
     for file in os.walkDir(dir, true):
+        if not file.endsWith(".nim"):continue
         echo file
         bracket.add(newIdentNode(file[1].split("/")[^1].split('.')[0]))
-        # echo file
     
     infixStmt.add(bracket)
     inclStmt.add(infixStmt)
@@ -70,6 +70,7 @@ macro importDir*(dir:static[string]): untyped =
     infixStmt.add(newIdentNode("/"), newIdentNode(dir))
     
     for file in os.walkDir(dir, true):
+        if not file.endsWith(".nim"):continue
         echo file
         bracket.add(newIdentNode(file[1].split("/")[^1].split('.')[0]))
         # echo file
