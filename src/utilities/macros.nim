@@ -78,5 +78,5 @@ macro importDir*(dir:static[string]): untyped =
     infixStmt.add(bracket)
     impStmt.add(infixStmt)
     tree.add(impStmt)
-    # echo tree.treeRepr
-    result = tree
+    echo tree.treeRepr
+    # result = tree
